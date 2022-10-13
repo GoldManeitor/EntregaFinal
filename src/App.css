@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@600;900&display=swap');
+
+
+body {
+    background-color: #FFF;
+    font-family: 'Kanit', sans-serif;
+}
+section {
+    display: flex;
+    flex-direction: row-reverse;
+
+    background-color: #FFF;
+
+}
+
+.Main {
+    width: 92%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+
+
+.cards_container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+      
+    
+}
+
+.eachCard {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    flex-grow: 1;
+
+    margin: 5px;
+    border: 2px solid rgb(145, 143, 143);
+    border-radius: 15px;
+
+    background-color: rgb(145, 143, 143);
+    
+}
+
+.card {
+    width: 210px;
+    height: 300px;
+    border-radius: 15px;
+    margin-top: 6px;
+}
+
+.cardName {
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    width: 200px;
+    height: 70px;
+}
+
+button {
+    width: 100px;
+    height: 30px;
+    margin: 5px;
+
+    border-radius: 16px;
+    border: none;
+}
+
+
+
+
+
+.nav_container {
+    height: 250px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+
+    background-color: #FFF;
+}
+
+
+.searchBar_container {
+    height: 50%;
+    flex-grow: 15;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+   
+}
+.searchInput {
+    width: 90%;
+    height: 40px;
+    border: none;
+    border-radius: 15px;
+
+    background-color: rgb(145, 143, 143); 
+    font-size: large;
+    text-align: center;
+    transition: all 0.2s;
+}
+.searchInput:hover {
+    background-color: rgb(196, 196, 196);
+}
+
+
+.buttons_container {
+    height: 50%;
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+   
+}
+.logo {
+    width: 120px;
+    height: 120px;
+    
+}
+
+
+.account_container {
+    flex-grow: 1;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    
+}
+.cart {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.bi_bi-bag {
+    width: 20px;
+    height: 20px;
+
+    
+}
+.profile {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.bi_bi-person {
+    width: 20px;
+    height: 20px;
+}
+.acc_but {
+    background-color: rgb(145, 143, 143); 
+    transition: all 0.2s;
+}
+.acc_but:hover {
+    background-color: rgb(196, 196, 196);
+}
+
+
+aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+ 
+
+    width: 8%;
+    margin-left: 0%;
+
+    background-color: #FFF;
+}
+.lateral_but {
+    width: 100%;
+    border-radius: 0px;
+    margin: 0%;
+    background-color: rgb(145, 143, 143); 
+    transition: all 0.2s;
+}
+.lateral_but:hover {
+    background-color: rgb(196, 196, 196);
+}
+.cat_Dc {
+    width: 100%;
+}
+.cat_Marvel {
+    width: 100%;
+}
+.categories_container{
+    width: 100%;
+}
+.lateral_container{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
