@@ -13,7 +13,7 @@ import { useState, useEffect } from "react";
 function Marvel (link) {
     return (
         <>
-            <div className="Main">
+           
                 <div className="cards_container">
                    
                     {link.data.map(comic => (
@@ -40,7 +40,7 @@ function Marvel (link) {
                         )
                     }
                  </div>
-            </div>
+            
         </>
                 )
 }
@@ -49,7 +49,7 @@ function Dc (link) {
     return(
         
         <>
-            <div className="Main">
+            
                 <div className="cards_container">
                     {link.data.map((comic) => (
                             <div className="eachCard_container" key={comic.id}>
@@ -75,7 +75,7 @@ function Dc (link) {
                         )
                     }
                 </div>
-            </div>
+            
         </>
         )
 }

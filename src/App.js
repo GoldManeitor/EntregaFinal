@@ -1,20 +1,20 @@
 
 import './App.css';
 import NavBar from "./components/NavBar";
-import ItemListContainer from "./components/ItemListContainer";
+// import ItemListContainer from "./components/ItemListContainer";
 import Lateral from "./components/Lateral";
 
 
 
 function App() {
-  let greeting = "Welcome";
+  // let greeting = "Welcome";
 
   return (
     <div className='html_container'>
       
       <nav>
         <NavBar />
-        <ItemListContainer greeting={greeting} />
+        {/* <ItemListContainer greeting={greeting} /> */}
       </nav>
       
       <Lateral />

@@ -1,67 +1,88 @@
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@600;900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2? family= Kanit:wght@600;900 & display=swap');
 
 body {
     background-color: #FFF;
     font-family: 'Kanit', sans-serif;
 }
 section {
-    display: flex;
-    flex-direction: row-reverse;
+    display: grid;
+    grid-template-columns: 240px auto 1040px auto;
+    grid-template-areas: "sidebar . main .";
 
-    background-color: #FFF;
 
 }
 
 .Main {
-    width: 92%;
+    
+    grid-column: 3 / span 1;
+
     display: flex;
     flex-direction: column;
-    text-align: center;
+    align-items: center;
+    justify-content: center;
+    
 }
 
 h1 {
     text-align: center;
+    font-family: 'Kanit', sans-serif;
 }
 
 
 
 .cards_container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 250px 250px 250px 250px;
+    column-gap: 12px;
+    row-gap: 15px;
+
+    margin-bottom: 15px;
+    margin-top: 5px;
+  
       
     
 }
 
 .eachCard {
-    display: flex;
+    /* display: flex;
     justify-content: flex-start;
     align-items: center;
-    flex-direction: column;
-    flex-grow: 1;
+    flex-direction: column; */
 
-    margin: 5px;
-    border: 2px solid rgb(145, 143, 143);
-    border-radius: 15px;
+    
+    display: grid;
+    grid-template-columns: 250px;
+    grid-template-rows: 300px 88px 40px;
+    row-gap: 5px;
 
-    background-color: rgb(145, 143, 143);
+    justify-items: center;
+
+
+    
+
+
+  
+    border: 1.5px solid rgb(219, 219, 219);
+    border-radius: 6px;
+
+    background-color: rgb(255, 254, 254);
     
 }
 
 .card {
     width: 210px;
     height: 300px;
-    border-radius: 15px;
-    margin-top: 6px;
+    border-radius: 6px;
+    margin-top: 7px;
 }
 
 .cardName {
-    color: rgb(255, 255, 255);
-    font-weight: 600;
+    color: rgb(0, 0, 0);
+    
     width: 200px;
     height: 70px;
+
+    font-family: 'Kanit', sans-serif;
 }
 
 button {
@@ -71,6 +92,14 @@ button {
 
     border-radius: 16px;
     border: none;
+    background-color: rgb(247, 247, 247);
+    transition: all 0.2s;
+
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(236, 236, 236);
 }
 
 
@@ -78,18 +107,24 @@ button {
 
 
 .nav_container {
-    height: 250px;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 240px auto 1040px auto;
+    grid-template-rows: 140px 60px;
+
+
+    padding: 0px 16px;
+
 
     background-color: #FFF;
+    border-bottom: 1px solid rgb(219, 219, 219);
 }
 
 
 .searchBar_container {
-    height: 50%;
-    flex-grow: 15;
+    
+    grid-column: 3 / span 1;
+
+
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -97,30 +132,33 @@ button {
 
    
 }
+.topnav {
+    border-bottom: 1px solid rgb(219, 219, 219);
+}
+
+
 .searchInput {
-    width: 90%;
+    width: 46%;
     height: 40px;
     border: none;
-    border-radius: 15px;
+    border-radius: 2px;
 
-    background-color: rgb(145, 143, 143); 
+    background-color: rgb(247, 247, 247);
     font-size: large;
     text-align: center;
     transition: all 0.2s;
 }
 .searchInput:hover {
-    background-color: rgb(196, 196, 196);
+    background-color: rgb(236, 236, 236);
 }
 
 
 .buttons_container {
-    height: 50%;
-    flex-grow: 1;
 
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: flex-start;
    
 }
 .logo {
@@ -131,12 +169,11 @@ button {
 
 
 .account_container {
-    flex-grow: 1;
-    height: 50%;
+   
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     
 }
 .cart {
@@ -150,8 +187,8 @@ button {
 
 }
 .bi_bi-bag {
-    width: 20px;
-    height: 20px;
+    width: 21px;
+    height: 21px;
 
     
 }
@@ -161,39 +198,47 @@ button {
     border-radius: 50%;
 }
 .bi_bi-person {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
 }
 .acc_but {
-    background-color: rgb(145, 143, 143); 
+    background-color: rgb(247, 247, 247);
     transition: all 0.2s;
 }
 .acc_but:hover {
-    background-color: rgb(196, 196, 196);
+    background-color: rgb(236, 236, 236);
 }
 
 
 aside {
+    grid-column: 1;
+
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
  
 
-    width: 8%;
-    margin-left: 0%;
-
+    width: 240px;
+    margin-left: -20px; 
+    
     background-color: #FFF;
+    border-right: 1px solid rgb(219, 219, 219);
 }
 .lateral_but {
-    width: 100%;
+   
+    width: 220px;
+    height: 30px;
+    margin: 0px;
     border-radius: 0px;
-    margin: 0%;
-    background-color: rgb(145, 143, 143); 
+    /* border-bottom: 1px solid rgb(219, 219, 219) ; */
+    background-color: rgb(255, 255, 255); 
     transition: all 0.2s;
+
+    font-family: 'Kanit', sans-serif;
 }
 .lateral_but:hover {
-    background-color: rgb(196, 196, 196);
+    background-color: rgb(236, 236, 236);
 }
 .cat_Dc {
     width: 100%;
