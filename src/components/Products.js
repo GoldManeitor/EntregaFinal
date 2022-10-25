@@ -10,6 +10,7 @@ import { useState, useEffect } from "react";
 
 // http://gateway.marvel.com/v1/public/comics?ts=1&apikey=dedf70a9ee245ce7f248df8b78d95bb5&hash=cc5c514a529d9d839ec30e6eae671f4e
 
+
 function Marvel (link) {
     return (
         <>
@@ -81,10 +82,12 @@ function Dc (link) {
 }
 
 
-function Main(prop){
+function Products(prop){
 
     const [cardMarvel, setCardMarvel] = useState([]);
     const [cardDc, setCardDC] = useState([])
+
+    
 
 useEffect(() => {
     axios.get("http://gateway.marvel.com/v1/public/comics?ts=1&apikey=dedf70a9ee245ce7f248df8b78d95bb5&hash=cc5c514a529d9d839ec30e6eae671f4e").then(res => {
@@ -99,10 +102,15 @@ useEffect (() => {
     fetch("https://akabab.github.io/superhero-api/api/all.json")
         .then((res) => res.json())
         .then((json) => { console.log(json); setCardDC(json) })
-        .catch((err) => console.log(err))
+        .catch((err) => console.log(err));
+
+   
+    
+    
 }, [])
 
 let cuttedDc = cardDc.slice(0,20);
+
 
     if (prop.data === 1){
         return ( <Marvel data={cardMarvel} /> )
@@ -117,4 +125,4 @@ let cuttedDc = cardDc.slice(0,20);
     )
 }
 
-export default Main;
+export default Products;

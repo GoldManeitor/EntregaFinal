@@ -1,21 +1,19 @@
 
 import CartWidget from "./CartWidget";
+import { NavLink } from "react-router-dom";
 
 function NavBar () {
 
 
     return ( 
-        <>
+
+            <>
             <div className="nav_container">
-                <div className="buttons_container topnav">
+                <div className="logo_logo_container topnav">
                     <div className="logo_container">
                         <CartWidget />
                     </div>
-                    {/* <div className="section1"></div>
-                    <div className="section2"></div>
-                    <div className="section3"></div> */}
                 </div>
-                <div className="topnav HUMO"></div>
                 <div className="searchBar_container topnav">
                     <input className="searchInput"/>
                 </div>
@@ -31,8 +29,14 @@ function NavBar () {
                         </svg>
                     </button>
                 </div>
+                <div className="nav_lower_container">
+                    <NavLink to={'/'} className="nav_lower_but"> Inicio </NavLink>
+                    <NavLink to={'/catalog'} className="nav_lower_but"> Catalogo </NavLink>
+                    <NavLink to={'/contact'} className="nav_lower_but"> Contacto </NavLink>
+                </div>
+                
             </div>
-        </>
+            </>
     )
 }
 

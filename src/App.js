@@ -1,27 +1,38 @@
 
 import './App.css';
 import NavBar from "./components/NavBar";
-// import ItemListContainer from "./components/ItemListContainer";
-import Lateral from "./components/Lateral";
+import Contact from "./components/Contact";
+import Inicio from "./components/Inicio";
+import Catalog from "./components/Catalog";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes
+} from "react-router-dom";
 
+// import ItemListContainer from "./components/ItemListContainer";
 
 
 function App() {
   // let greeting = "Welcome";
 
   return (
+    <Router>
+    
     <div className='html_container'>
       
-      <nav>
-        <NavBar />
+      
+      <NavBar />
         {/* <ItemListContainer greeting={greeting} /> */}
-      </nav>
+      <Routes>
+      <Route exact path="/" element={<Inicio />} />
+      <Route exact path="/contact" element={<Contact />} />
+      <Route exact path="/catalog" element={<Catalog />} />
       
-      <Lateral />
-      
-      
+      </Routes>
      
     </div>
+    </Router>
   );
 }
 
