@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar";
 import Contact from "./components/Contact";
 import Inicio from "./components/Inicio";
 import Catalog from "./components/Catalog";
+import ProductView from "./components/ProductView";
 import {
   BrowserRouter as Router,
   Route,
@@ -28,6 +29,7 @@ function App() {
       <Route exact path="/" element={<Inicio />} />
       <Route exact path="/contact" element={<Contact />} />
       <Route exact path="/catalog" element={<Catalog />} />
+      <Route exact path="/product/:productId" element={<ProductView />} />
       
       </Routes>
      

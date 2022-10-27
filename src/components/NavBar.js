@@ -30,9 +30,9 @@ function NavBar () {
                     </button>
                 </div>
                 <div className="nav_lower_container">
-                    <NavLink to={'/'} className="nav_lower_but"> Inicio </NavLink>
-                    <NavLink to={'/catalog'} className="nav_lower_but"> Catalogo </NavLink>
-                    <NavLink to={'/contact'} className="nav_lower_but"> Contacto </NavLink>
+                    <NavLink to={'/'} className="nav_lower_but " > Inicio </NavLink>
+                    <NavLink to={'/catalog'} className="nav_lower_but " > Catalogo </NavLink>
+                    <NavLink to={'/contact'} className="nav_lower_but " > Contacto </NavLink>
                 </div>
                 
             </div>

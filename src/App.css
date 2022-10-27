@@ -122,7 +122,7 @@ button:hover {
 
 .searchBar_container {
     
-    grid-column: 3 / span 1;
+    grid-column: 2 / 4;
 
 
     display: flex;
@@ -207,7 +207,7 @@ button:hover {
 }
 
 .nav_lower_container{
-    grid-column: 3 / 4;
+    grid-column: 2 / 4;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -219,7 +219,6 @@ button:hover {
     text-decoration: none;
     color: rgb(148, 148, 148);
 }
-
 
 article {
     grid-column: 1;
@@ -266,3 +265,21 @@ article {
     text-align: center;
 }
 
+
+
+h3 {
+    text-align: center;
+}
+.product_deploy_container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row ;
+    margin-top: 120px;
+}
+.view_Card {
+    margin: 20px;
+}
+
+p {
+    text-align: center;
+}
