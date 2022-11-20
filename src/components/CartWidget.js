@@ -1,9 +1,30 @@
+import { Link } from "react-router-dom";
+import {useEffect, useState} from "react";
+import {CartProvider, useCart} from "./CartContext";
 
+
+function Checkout () {
+
+}
 
 function CartWidget () {
-    return(
-        <img className="logo" alt="logo" src="https://i.pinimg.com/originals/c9/98/42/c998421ed31f339b84c1e04130bf8927.png"/>
+    const {item} = useCart();
+    console.log(item)
+    if (item){
+    return (
+        <>
+            <div className="items_in_cart_container">
+                {item.map((item) => {
+                    <div className="item_in_cart">
+                        <p>{item.title}</p>
+                        <p>{item.price}</p>
+                    </div>
+                    
+                })}
+            </div>
+        </>
     )
+    }
 }
 
 export default CartWidget ;

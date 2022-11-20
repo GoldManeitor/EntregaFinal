@@ -1,12 +1,14 @@
 
 import Products from "./Products";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+
+
 
 
 function Catalog () {
 
     const [cat , setCat] = useState([0])
- 
+   
     return(
       <>
        
@@ -28,6 +30,7 @@ function Catalog () {
           </article>
         <div className="Main">
           <Products data={cat}/>
+          
         </div>
       </section>
      

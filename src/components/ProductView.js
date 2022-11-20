@@ -1,79 +1,47 @@
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import { useState, useEffect } from "react";
+import { doc, getDoc, getFirestore} from "firebase/firestore";
+import { CartProvider } from "./CartContext";
 
 
 function ProductView () {
 
-    const comicId = useParams();
+    const comicID = useParams();
+    const [productDB , setProduct] = useState([]);
+    const [added, setAdd] = useState([]);
 
-    const [cardMarvel, setCardMarvel] = useState([]);
-    const [cardDc, setCardDC] = useState([])
+    CartProvider(added);
 
-    
-
-useEffect(() => {
-    axios.get("http://gateway.marvel.com/v1/public/comics?ts=1&apikey=dedf70a9ee245ce7f248df8b78d95bb5&hash=cc5c514a529d9d839ec30e6eae671f4e").then(res => {
-        setCardMarvel(res.data.data.results)
-        
-    }).catch(error => console.log(error))
-
-}, [])
-
-useEffect (() => {
-    
-    fetch("https://akabab.github.io/superhero-api/api/all.json")
-        .then ((res) => res.json())
-        .then((json) => { setCardDC(json) })
-        .catch((err) => console.log(err));
-
-   
-    
-    
-}, [])
-
-
-let cuttedDc = cardDc.slice(0,20);
-
-let cardView = (cuttedDc.find((card) => JSON.stringify(card.id) === comicId.productId) || cardMarvel.find((card) => JSON.stringify(card.id) === comicId.productId));
-let awaiter = cardView !== undefined;
-console.log(cardView)
-if (awaiter && (cardView.id >= 100)) {
+    async function carga () {
+        const db = getFirestore();
+  
+        const comicRef = doc(db, "items", `${comicID.productId}`);
+        await getDoc(comicRef).then((snapshot) => {
+            if(snapshot.exists()) {
+                setProduct({id : snapshot.id, ...snapshot.data()})  
+            }
+        })
+    }
+    carga();
     return (
         <>
             <h1>View</h1>
            
             <div className="product_deploy_container">
-                <img className="card view_Card" alt="personaje" src={`${cardView.thumbnail.path}.${cardView.thumbnail.extension}`}></img>
-                <h3>{cardView.title}</h3>
+                <img className="card view_Card" alt="personaje" src={`${productDB.imageID}`}></img>
+                <h3>{productDB.title}</h3>
                 
             </div> 
-            <p>Detalles coming soon</p>
+            <p>{productDB.description}</p>
+            <button className="addCart" onClick = {() => setAdd(productDB)}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-bag-plus" viewBox="0 0 16 16">
+                                        <path fillRule="evenodd" d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z"/>
+                                        <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+                                    </svg>
+            </button>
         </>
         
     )
-   }
-
-else if(awaiter) {
-    return (
-        <>
-            <h1>View</h1>
-           
-            <div className="product_deploy_container">
-                <img className="card view_Card" alt="personaje" src={`${cardView.images.sm}`}></img>
-                <h3>{cardView.name}</h3>
-                
-            </div> 
-            <p>Detalles coming soon</p>
-        </>
-        
-    )
-}
-
-
-
-
-    
 }
 
 export default ProductView;
