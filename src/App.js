@@ -16,10 +16,11 @@ import {
 // import ItemListContainer from "./components/ItemListContainer";
 
 
-function App() {
+export default function App() {
   // let greeting = "Welcome";
 
   return (
+    <CartProvider>
     <Router>
     
     <div className='html_container'>
@@ -38,9 +39,7 @@ function App() {
      
     </div>
     </Router>
-  );
+    </CartProvider>
+  )
 }
-
-export default () => <CartProvider>
-  <App></App>
-</CartProvider> ;           
+       

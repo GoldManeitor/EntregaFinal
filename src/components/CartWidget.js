@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
-import {useEffect, useState} from "react";
-import {CartProvider, useCart} from "./CartContext";
+
+import { useContext, useEffect, useState } from "react";
+import { CartContext } from "./CartContext";
 
 
 function Checkout () {
@@ -8,23 +8,23 @@ function Checkout () {
 }
 
 function CartWidget () {
-    const {item} = useCart();
-    console.log(item)
-    if (item){
+    const {data} = useContext(CartContext);
+    console.log(data)
+    
     return (
         <>
             <div className="items_in_cart_container">
-                {item.map((item) => {
+                {data.map((item) => (
                     <div className="item_in_cart">
                         <p>{item.title}</p>
-                        <p>{item.price}</p>
+                        <p>${item.price}</p>
                     </div>
                     
-                })}
+                ))}
             </div>
         </>
     )
-    }
+    
 }
 
 export default CartWidget ;

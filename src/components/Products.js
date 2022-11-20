@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { collection, getDocs, getFirestore} from "firebase/firestore";
 import { Link } from "react-router-dom";
+import { CartContext } from "./CartContext";
 
 
 // publ: dedf70a9ee245ce7f248df8b78d95bb5
@@ -12,7 +13,7 @@ import { Link } from "react-router-dom";
 // http://gateway.marvel.com/v1/public/comics?ts=1&apikey=dedf70a9ee245ce7f248df8b78d95bb5&hash=cc5c514a529d9d839ec30e6eae671f4e
 
 
-function Comics (productDB) {
+function Comics (productDB, cartList) {
     return(
         
         <>
@@ -24,7 +25,7 @@ function Comics (productDB) {
                             <img className="card" alt="personaje" src={`${item.imageID}`}></img>
                             <p className="cardName">{item.title}</p>
                             <div className="button_container">
-                                <button className="addCart">
+                                <button className="addCart" onClick={() => cartList.push(item)}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-bag-plus" viewBox="0 0 16 16">
                                         <path fillRule="evenodd" d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z"/>
                                         <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
@@ -52,6 +53,7 @@ function Comics (productDB) {
 
 function Products(prop){
 
+    const { cartList } = useContext(CartContext);
     const [cardMarvel, setCardMarvel] = useState([]);
     const [cardDc, setCardDC] = useState([])
 
@@ -62,67 +64,14 @@ function Products(prop){
       const db = getFirestore();
 
       const itemsCollection = collection(db, "items");
-      getDocs(itemsCollection).then((snapshot) => {
+      await getDocs(itemsCollection).then((snapshot) => {
         setProduct((snapshot.docs.map((doc) => ({id: doc.id, ...doc.data()}))));
-      }, [productDB, itemsCollection, db]);
+      })
     };
     cargar();
 
-    return <Comics data = {productDB} />
+    return <Comics data = {productDB} cartList = {cartList} />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// useEffect(() => {
-//     axios.get("http://gateway.marvel.com/v1/public/comics?ts=1&apikey=dedf70a9ee245ce7f248df8b78d95bb5&hash=cc5c514a529d9d839ec30e6eae671f4e").then(res => {
-//         setCardMarvel(res.data.data.results)
-//     }).catch(error => console.log(error))
-
-// }, [])
-
-// useEffect (() => {
-    
-//     fetch("https://akabab.github.io/superhero-api/api/all.json")
-//         .then((res) => res.json())
-//         .then((json) => {setCardDC(json) })
-//         .catch((err) => console.log(err));
-
-   
-    
-    
-// }, [])
-
-// let cuttedDc = cardDc.slice(0,20);
-
-
-//     if (prop.data === 1){
-//         return ( <Marvel data={cardMarvel} /> )
-//     }
-//     else if(prop.data === 2) return ( <Dc data={cuttedDc}/>);
-//     else return(
-//         <>
-//             <Marvel data={cardMarvel}/>
-//             <Dc data={cuttedDc}/>
-//         </>
-        
-//     )
 }
 
 export default Products;
