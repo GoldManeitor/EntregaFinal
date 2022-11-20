@@ -14,13 +14,13 @@ function CartWidget () {
     return (
         <>
             <div className="items_in_cart_container">
-                {data.map((item) => (
+                {/* {data.map((item) => ( */}
                     <div className="item_in_cart">
-                        <p>{item.title}</p>
-                        <p>${item.price}</p>
+                        <p>{data.title}</p>
+                        <p>${data.price}</p>
                     </div>
                     
-                ))}
+                {/* ))} */}
             </div>
         </>
     )

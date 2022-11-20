@@ -6,18 +6,13 @@ export const CartContext = React.createContext();
 
 export function CartProvider ({children}) {
     
-    let cartList = [];
-    const [data, setData] = useState(cartList);
     
-    useEffect(()=> {
-        setData(cartList);
-    }, [cartList])
+    const [data, setData] = useState([]);
     
     return (
         <CartContext.Provider value = {{
             data,
             setData,
-            cartList
         }}>
             { children }
         </CartContext.Provider>
