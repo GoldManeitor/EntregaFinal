@@ -5,7 +5,6 @@ export const CartContext = React.createContext();
 
 function keepInStorage (data) {
     let newData = JSON.parse(localStorage.getItem(`${data.id}`));
-    console.log(newData)
     if (data?.id){
         if (newData) {
             newData.quantity ++;

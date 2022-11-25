@@ -15,7 +15,7 @@ function NavBar () {
                     </div>
                 </div>
                 <div className="searchBar_container topnav">
-                    <input className="searchInput"/>
+                    <input className="searchInput" />
                 </div>
                 <div className="account_container topnav">
                     {/* <button className="profile acc_but">

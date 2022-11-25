@@ -12,8 +12,8 @@ import { CartContext } from "./CartContext";
 
 // http://gateway.marvel.com/v1/public/comics?ts=1&apikey=dedf70a9ee245ce7f248df8b78d95bb5&hash=cc5c514a529d9d839ec30e6eae671f4e
 
+export function Comics (productDB) {
 
-function Comics (productDB) {
     const { setDataHelper } = useContext(CartContext);
     return(
         
@@ -54,9 +54,8 @@ function Comics (productDB) {
 
 function Products(prop){
 
-    
-    const [cardMarvel, setCardMarvel] = useState([]);
-    const [cardDc, setCardDC] = useState([])
+    // const [cat, setCat] = useState([2])
+    const switcher = ["marvel" , "dc"];
 
     
     const [productDB , setProduct] = useState([])
@@ -72,7 +71,15 @@ function Products(prop){
       })
     }, [db]);
 
-    return <Comics data = {productDB} />
+    if (prop.data === 0){
+        return <Comics data = {productDB.filter((element) => element.categoryID == (switcher[0]))} />
+    }
+    else if (prop.data === 1) {
+        return <Comics data = {productDB.filter((element) => element.categoryID == (switcher[1]))} />
+    }
+    else {
+        return <Comics data = {productDB} />
+    }
 
 }
 
