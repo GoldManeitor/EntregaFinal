@@ -8,7 +8,7 @@ function ItemListContainer () {
     return(
         <>
         <div className="items_in_cart_container">
-            aca van los objetos
+                No he podido encontrar una forma de desplegar lo almacenado en LStorage 
             {/* {items.map((item) => (
                 <div className="item_in_cart">
                     <p>{item.title}</p>

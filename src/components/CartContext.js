@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 
 export const CartContext = React.createContext();
 
+
 function keepInStorage (data) {
     let newData = JSON.parse(localStorage.getItem(`${data.id}`));
     if (data?.id){
