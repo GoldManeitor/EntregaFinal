@@ -1,5 +1,6 @@
 import { collection, getDocs, getFirestore } from "firebase/firestore";
 import { useEffect, useState } from "react";
+import { Checkout } from "./CartWidget";
 
 
 export function ItemDeploy ({item}) {
@@ -14,6 +15,7 @@ export function ItemDeploy ({item}) {
 function ItemListContainer () {
     
     const [productDB , setProduct] = useState([])
+    const [checkIn, setCheckIn] = useState([])
 
     const db = getFirestore();
     useEffect(() => {
@@ -22,21 +24,22 @@ function ItemListContainer () {
         const itemsCollection = collection(db, "items");
         getDocs(itemsCollection).then((snapshot) => {
         setProduct((snapshot.docs.map((doc) => ({id: doc.id, ...doc.data()}))));
+        setCheckIn(productDB.filter((item) => localStorage.getItem(item.id)));
       
       })
-    }, [db]);
-    
-    let itemList = productDB.filter((item) => localStorage.getItem(item.id))
-    console.log(productDB)
+    }, [db, productDB]);
     
     
     
     return(
         <>
-        <div className="items_in_cart_container">
-            {itemList.map((elem) => <ItemDeploy item={JSON.parse(localStorage.getItem(elem.id))}/>)}
-        </div>
-    </>
+            <div className="items_in_cart_container">
+                {checkIn.map((elem) => <ItemDeploy item={JSON.parse(localStorage.getItem(elem.id))}/>)}
+                <button onClick={Checkout}>Comprar</button>
+            </div>
+            
+            
+        </>
     )
 }
 

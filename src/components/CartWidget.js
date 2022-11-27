@@ -1,12 +1,11 @@
 
-import { useContext, useEffect, useState } from "react";
-import { CartContext } from "./CartContext";
+
 import ItemListContainer from "./ItemListContainer";
 
 
 
-function Checkout () {
-
+export function Checkout () {
+    localStorage.clear();
 }
 
 
@@ -14,8 +13,13 @@ function Checkout () {
 
 function CartWidget () {
     
+    
     return (
-       <ItemListContainer />
+        <>
+            <ItemListContainer />
+            
+        </>
+      
     )
     
 }
