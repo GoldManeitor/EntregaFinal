@@ -9,6 +9,7 @@ function keepInStorage (data) {
     if (data?.id){
         if (newData) {
             newData.quantity ++;
+            newData.price *= newData.quantity;
             localStorage.setItem(`${newData.id}`, JSON.stringify(newData))
         }
         else { newData = {...data, quantity : 1}
