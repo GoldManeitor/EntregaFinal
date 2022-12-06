@@ -71,10 +71,10 @@ function Products(prop){
       })
     }, [db]);
 
-    if (prop.data === 0){
+    if (prop.data == 0){
         return <Comics data = {productDB.filter((element) => element.categoryID == (switcher[0]))} />
     }
-    else if (prop.data === 1) {
+    else if (prop.data == 1) {
         return <Comics data = {productDB.filter((element) => element.categoryID == (switcher[1]))} />
     }
     else {
